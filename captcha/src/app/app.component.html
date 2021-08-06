@@ -1,0 +1,16 @@
+<form [formGroup]="formGroup">
+  <input type="text" formControlName="value1">
+  <input type="text" formControlName="value2">
+  <ngx-invisible-recaptcha #captchaElem
+                           siteKey="6Lf2NeMbAAAAAMSWrYQVyyP3rDshJJ8EZFET2OYj"
+                           (reset)="handleReset()"
+                           (expire)="handleExpire()"
+                           (load)="handleLoad()"
+                           (success)="handleSuccess($event)"
+                           [useGlobalDomain]="true"
+                           [ngModel]="captchaInvisible"
+                           [ngModelOptions]="{ standalone: true}"
+                           type="image">
+  </ngx-invisible-recaptcha>
+</form>
+<button (click)="send()">submit</button>
